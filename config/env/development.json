@@ -1,0 +1,8 @@
+{
+	"db": {
+		"url": "mongodb://localhost/catsdb"
+	},
+	"app" : {
+		"port": 3000
+	}
+}

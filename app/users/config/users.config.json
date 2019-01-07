@@ -1,0 +1,9 @@
+{
+	"name" : "users",
+	"title" : "Users",
+	"description" : "Users will be users !",
+  "apiRoutes": ["users.server.api.route.js"],
+	"uiRoutes": ["users.server.ui.route.js"],
+	"models": ["users.server.model.js"],
+	"root": "/users"
+}

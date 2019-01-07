@@ -1,0 +1,103 @@
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+tags:
+- name: "Polls"
+  description: "Polls APIs" 
+/api/polls:
+  post:
+    summary: Create poll
+    description: Create a poll by data provided
+    security:
+    - Bearer: []
+    tags:
+    - Polls
+    responses:
+      201:
+        description: Success
+    parameters:
+    - in: body
+      name: Body
+      required: true
+      schema:
+        type: object
+        properties:
+          title: 
+            type: string
+            example: EXAMPLE
+
+  get:
+    summary: List polls
+    description: List polls
+    security:
+    - Bearer: []
+    tags:
+    - Polls
+    responses:
+      200:
+        description: Success
+
+/api/polls/{pollId}:
+  get:
+    summary: Get poll details
+    description: Get details of specified poll
+    security:
+    - Bearer: []
+    tags:
+    - Polls
+    responses:
+      200:
+        description: Success
+    parameters:
+    - in: path
+      name: pollId
+      schema:
+        type: string
+      required: true
+      description: Poll ID
+  put:
+    summary: Update poll
+    description: Update poll with provided data
+    security:
+    - Bearer: []
+    tags:
+    - Polls
+    responses:
+      200:
+        description: Success
+    parameters:
+    - in: path
+      name: pollId
+      schema:
+        type: string
+      required: true
+      description: Poll ID
+    - in: body
+      name: Body
+      required: true
+      schema:
+        type: object
+        properties:
+          title: 
+            type: string
+            example: EXAMPLE
+
+  delete:
+    summary: Remove poll
+    description: Remove specified poll
+    security:
+    - Bearer: []
+    tags:
+    - Polls
+    responses:
+      200:
+        description: Success
+    parameters:
+    - in: path
+      name: pollId
+      schema:
+        type: string
+      required: true
+      description: Poll ID

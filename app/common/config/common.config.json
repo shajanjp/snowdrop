@@ -1,0 +1,9 @@
+{
+  "name" : "snowdrop",
+  "title" : "Snowdrop",
+  "description" : "Snow that drops !",
+  "apiRoutes": ["common.server.api.route.js"],
+  "uiRoutes": ["common.server.ui.route.js"],
+  "models": [],
+  "root": "/"
+}

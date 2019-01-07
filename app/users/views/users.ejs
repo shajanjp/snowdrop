@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Users - Snowdrop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+  <br>
+  <div class="ui container">
+    <h1 class="ui header">Snowdrop</h1>
+    <div class="ui stackable grid">
+      
+      <div class="three wide column">
+        <!-- Sidebar -->
+        <% include ../../common/views/partials/sidebar-menu.ejs %>
+      </div>
+
+      <div class="thirteen wide column">
+        <!-- Users List -->
+        <div class="ui five stackable cards">
+
+          <% usersList.forEach(function(user){ %>
+          <div class="ui card">
+            <div class="image">
+              <img src="https://api.adorable.io/avatars/100/<%= user._id %>.png">
+            </div>
+            <div class="content">
+              <a class="header"><%= user.fullName %></a>
+              <div class="meta">
+                <span class="date"><%= user.ipAddress %></span>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>

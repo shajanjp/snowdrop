@@ -1,0 +1,17 @@
+[
+  {
+    "name": "common",
+    "title": "Snowdrop",
+    "root": "/"
+  },
+  {
+    "name": "users",
+    "title": "Users",
+    "root": "/users"
+  },
+  {
+    "name": "polls",
+    "title": "Polls",
+    "root": "/polls"
+  }
+]

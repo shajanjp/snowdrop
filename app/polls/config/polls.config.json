@@ -1,0 +1,9 @@
+{
+  "name" : "polls",
+  "title" : "Polls",
+  "description" : "Polls will be polls !",
+  "apiRoutes": ["polls.server.api.route.js"],
+  "uiRoutes": ["polls.server.ui.route.js"],
+  "models": ["polls.server.model.js"],
+  "root": "/polls"
+}
