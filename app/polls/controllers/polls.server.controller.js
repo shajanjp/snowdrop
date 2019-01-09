@@ -80,3 +80,14 @@ exports.removePoll = (req, res) => {
     });
   });
 }
+
+exports.getPollsUI = (req, res) => {
+  Poll.find({}).lean()
+  .then(pollsFound => {
+    res.render('polls/views/polls-list', {pollsList: pollsFound})
+  })
+  .catch(error => {
+    console.log('getPollsUI error', error);
+    res.render('common/views/404')
+  })
+}

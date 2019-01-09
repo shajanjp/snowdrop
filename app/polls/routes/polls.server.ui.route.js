@@ -5,7 +5,7 @@ const pollValidator = require('../libraries/polls.server.validation.js');
 
 router.route('/')
 .post(pollValidator.validateInsertPoll, pollController.insertPoll)
-.get(pollController.getPolls);
+.get(pollController.getPollsUI);
 
 router.route('/:pollId')
 .put(pollValidator.validateInsertPoll, pollController.updatePoll)
