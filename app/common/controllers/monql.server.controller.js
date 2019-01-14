@@ -82,9 +82,9 @@ function doTask(Model, taskDetails){
 }
 
 const monqlAPIController = (req, res) => {
-  console.log('req.body.collection', req.body.collection);
-  let Model = modelList[req.body.collection];
-  doTask(Model, req.body)
+  console.log('req.body.dataBody.collection', res.locals.dataBody.collection);
+  let Model = modelList[res.locals.dataBody.collection];
+  doTask(Model, res.locals.dataBody)
   .then(taskResult => {
     res.json({
       "status": "success",
@@ -96,8 +96,9 @@ const monqlAPIController = (req, res) => {
       "status": "failed"
     })
   })
-} 
+}
 
 module.exports = {
+  validateRequestBody,
   monqlAPIController
 }
