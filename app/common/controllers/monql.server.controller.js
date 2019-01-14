@@ -43,6 +43,9 @@ function doTask(Model, taskDetails){
       .limit(taskDetails.limit)
       .lean();
       break;
+    case "DELETE":
+      return Model.remove(taskDetails.filter);
+      break;
     default:
       return Promise.resolve({}); 
   }
