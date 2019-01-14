@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const User = mongoose.model('user');
 const Poll = mongoose.model('poll');
 
+
+
 function chooseModel(modelName){
   switch(modelName) {
     case "users":
@@ -31,7 +33,7 @@ function doTask(Model, taskDetails){
   switch(taskDetails.method){
     case "CREATE":
       console.log('method CREATE');
-      let newModelData = new Model(req.query.data);
+      let newModelData = new Model(taskDetails.data);
       return newModelData.save();
       break;
     case "READ":
