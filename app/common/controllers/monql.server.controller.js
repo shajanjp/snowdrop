@@ -4,18 +4,9 @@ const mongoose = require('mongoose');
 const User = mongoose.model('user');
 const Poll = mongoose.model('poll');
 
-
-
-function chooseModel(modelName){
-  switch(modelName) {
-    case "users":
-      return User;
-      break;
-    case "polls":
-      return Poll;
-      break;
-    default:
-  }
+const modelList = {
+  users: User,
+  polls: Poll
 }
 
 function makeSelectObjectFromArray(selectList){
@@ -52,7 +43,7 @@ function doTask(Model, taskDetails){
 
 const monqlAPIController = (req, res) => {
   console.log('req.body.collection', req.body.collection);
-  let Model = chooseModel(req.body.collection);
+  let Model = modelList[req.body.collection];
   doTask(Model, req.body)
   .then(taskResult => {
     res.json({
