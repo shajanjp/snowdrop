@@ -82,7 +82,7 @@ function doTask(Model, taskDetails){
 }
 
 const monqlAPIController = (req, res) => {
-  console.log('req.body.dataBody.collection', res.locals.dataBody.collection);
+  console.log('req.body.dataBody', res.locals.dataBody);
   let Model = modelList[res.locals.dataBody.collection];
   doTask(Model, res.locals.dataBody)
   .then(taskResult => {
