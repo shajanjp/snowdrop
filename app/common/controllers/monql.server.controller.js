@@ -46,6 +46,9 @@ function doTask(Model, taskDetails){
     case "DELETE":
       return Model.remove(taskDetails.filter);
       break;
+    case "UPDATE":
+      return Model.update(taskDetails.filter, { $set: taskDetails.data }, taskDetails.options);
+      break;
     default:
       return Promise.resolve({}); 
   }
