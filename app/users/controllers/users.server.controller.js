@@ -10,14 +10,17 @@ function randomName(){
 
 function authUser(req, res, next){
   let ipAddress = req.connection.remoteAddress || '::ffff:UN.KN.OW.N';
+  if(ipAddress == '::1')
+    ipAddress = '::ffff:UN.KN.OW.N';
   ipAddress = ipAddress.split('::ffff:')[1];
+
   User.findOne({ipAddress: ipAddress}).lean()
   .then(usersFound => {
     if(usersFound && usersFound.ipAddress){
       res.locals.authUserId = usersFound._id;
       next();
     }
-    else{
+    else {
       let newUser = new User({
         ipAddress: ipAddress,
         fullName: randomName(),
