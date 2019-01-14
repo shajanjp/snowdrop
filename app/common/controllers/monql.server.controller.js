@@ -36,8 +36,9 @@ const validateRequestBody = function(req, res, next) {
       });
     } else {
       res.locals.dataBody = validated;
-      if(res.locals.dataBody.method == 'UPDATE' || res.locals.dataBody.method == 'DELETE'){
-        res.locals.dataBody.filters = { createdAt: res.locals.authUserId };
+      if(res.locals.dataBody.method == 'UPDATE' || res.locals.dataBody.method == 'DELETE' || res.locals.dataBody.method == 'CREATE'){
+        res.locals.dataBody.filter.createdBy = res.locals.authUserId;
+        res.locals.dataBody.data.createdBy = res.locals.authUserId;
       }
       return next();
     }
