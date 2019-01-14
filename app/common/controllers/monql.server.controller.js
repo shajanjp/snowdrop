@@ -13,7 +13,7 @@ const populateBodySchema = joi.object().keys({
 });
 
 const optionsBodySchema = joi.object().keys({
-  safe: joi.boolean().optional()
+  safe: joi.boolean().optional().default(true)
 });
 
 const requestBodySchema = joi.object().keys({
