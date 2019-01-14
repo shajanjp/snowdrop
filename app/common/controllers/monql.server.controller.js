@@ -9,11 +9,9 @@ const Poll = mongoose.model('poll');
 function chooseModel(modelName){
   switch(modelName) {
     case "users":
-      console.log('users model selected');
       return User;
       break;
     case "polls":
-      console.log('polls model selected');
       return Poll;
       break;
     default:
@@ -25,14 +23,12 @@ function makeSelectObjectFromArray(selectList){
   selectList.forEach((keyName) => {
     selectObject[keyName] = 1;
   })
-  console.log('selectObject', selectObject);
   return selectObject;
 }
 
 function doTask(Model, taskDetails){
   switch(taskDetails.method){
     case "CREATE":
-      console.log('method CREATE');
       let newModelData = new Model(taskDetails.data);
       return newModelData.save();
       break;
@@ -64,7 +60,7 @@ const monqlAPIController = (req, res) => {
       "data": taskResult
     })
   })
-  .catch(error => {
+  .catch(error => { 
     res.status(500).json({
       "status": "failed"
     })
